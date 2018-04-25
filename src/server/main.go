@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"github.com/liangdas/mqant"
 	"github.com/liangdas/mqant/module/modules"
 	"server/gate"
@@ -10,9 +10,7 @@ import (
 )
 
 func main()  {
-	fmt.Println("c")
 	app:= mqant.CreateApp()
-	fmt.Println("c")
 
 	app.Run(true,
 			modules.MasterModule(),
