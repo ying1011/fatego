@@ -18,6 +18,7 @@ var Module = func() module.Module {
 //模块定义
 type Game struct{
 	basemodule.BaseModule
+	scene
 }
 
 
