@@ -59,7 +59,7 @@ func (m *Login) login(session gate.Session,msg map[string]interface{}) (result s
 	if err != "" {
 		return
 	}
-	session.Set("login", "true")
+	session.Set("logining", "true")
 	session.Push()
 	return fmt.Sprint("login success ", userId),""
 }
