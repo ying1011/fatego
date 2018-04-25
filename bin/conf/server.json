@@ -33,7 +33,7 @@
                     "CertFile": "/opt/go/mqantserver/sslkey/h5link.pem",
                     "KeyFile": "/opt/go/mqantserver/sslkey/h5link.key",
                     //Session持久化心跳包 单位/秒
-                    "MinHBStorage": 60
+                    "MinHBStorage": 15
                 }
             }
         ],
