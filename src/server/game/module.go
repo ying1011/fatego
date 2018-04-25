@@ -6,6 +6,7 @@ import (
 	"github.com/liangdas/mqant/module/base"
 	"github.com/liangdas/mqant/conf"
 	"github.com/liangdas/mqant/gate"
+	"server/game/base"
 )
 
 //创建模块
