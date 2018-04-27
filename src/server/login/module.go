@@ -57,11 +57,11 @@ func (m *Login) login(session gate.Session,msg map[string]interface{}) (result s
 		return "", result
 	}
 	userId := msg["userId"].(string)
+
 	err = session.Bind(userId)
 	if err != "" {
 		return
 	}
-
 	session.Set("logining", "true")
 	session.Push()
 	return fmt.Sprint("login success ", userId),""
