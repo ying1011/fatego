@@ -14,6 +14,10 @@ func NewPlayer()  {
 	
 }
 
+func (w *Player)Reset()  {
+	
+}
+
 func (w *Player)GetUid() string {
 	return w.uid
 }
