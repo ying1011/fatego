@@ -5,7 +5,28 @@ import (
 )
 
 type Player struct{
-	uid			int
+	uid			string
 	name		string
 	session		gate.Session
+}
+
+func NewPlayer()  {
+	
+}
+
+func (w *Player)GetUid() string {
+	return w.uid
+}
+
+func (w *Player)Bind(session gate.Session) bool {
+	if session != nil {
+		w.session = session
+		return true
+	}else {
+		return false
+	}
+}
+
+func (w *Player)UnBind() {
+	w.session = nil
 }

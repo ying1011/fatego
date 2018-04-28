@@ -6,7 +6,9 @@ import (
 
 type Room struct{
 	base.Room
-	chessBoard Board
+	seats 		[]*base.Player
+	maxSeat 	int
+	chessBoard 	Board
 }
 
 func (w *Room)init()  {
