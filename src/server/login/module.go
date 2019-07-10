@@ -35,6 +35,8 @@ func (m *Login) OnInit(app module.App, settings *conf.ModuleSettings) {
 	m.BaseModule.OnInit(m, app, settings)
 	//注册远程调用/消息
 	m.GetServer().Register("HD_Login", m.login)
+
+
 }
 
 //返回一次
@@ -55,11 +57,13 @@ func (m *Login) login(session gate.Session,msg map[string]interface{}) (result s
 		return "", result
 	}
 	userId := msg["userId"].(string)
+
 	err = session.Bind(userId)
 	if err != "" {
 		return
 	}
-	session.Set("login", "true")
+	fmt.Println(session.GetUserId())
+	session.Set("logining", "true")
 	session.Push()
 	return fmt.Sprint("login success ", userId),""
 }

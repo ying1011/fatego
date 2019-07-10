@@ -6,6 +6,7 @@ import (
 	"github.com/liangdas/mqant/module/base"
 	"github.com/liangdas/mqant/conf"
 	"github.com/liangdas/mqant/gate"
+	"server/game/base"
 )
 
 //创建模块
@@ -17,6 +18,7 @@ var Module = func() module.Module {
 //模块定义
 type Game struct{
 	basemodule.BaseModule
+	scene base.Scene
 }
 
 
@@ -35,6 +37,7 @@ func (m *Game) OnInit(app module.App, settings *conf.ModuleSettings) {
 	m.BaseModule.OnInit(m, app, settings)
 	//注册远程调用/消息
 	m.GetServer().Register("HD_Game", m.game)
+	m.GetServer().Register("HD_Join", m.join)
 }
 
 
@@ -56,6 +59,12 @@ func (m *Game) game(session gate.Session,msg map[string]interface{}) (result str
 	}
 	say := msg["say"].(string)
 	fmt.Println(say)
+
+	return "sss",""
+}
+
+
+func (m *Game) join(session gate.Session,msg map[string]interface{}) (result string, err string) {
 
 	return "sss",""
 }

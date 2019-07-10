@@ -1,23 +1,21 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"github.com/liangdas/mqant"
 	"github.com/liangdas/mqant/module/modules"
 	"server/gate"
-	"server/game"
-	"server/login"
+	"server/webapp"
 )
 
 func main()  {
-	fmt.Println("c")
 	app:= mqant.CreateApp()
-	fmt.Println("c")
 
 	app.Run(true,
-			modules.MasterModule(),
-			gate.Module(),  //这是默认网关模块,是必须的支持 TCP,websocket,MQTT协议
-			game.Module(),
-			login.Module(),
-		)
+		modules.MasterModule(),
+		gateAlpha.Module(),  //这是默认网关模块,是必须的支持 TCP,websocket,MQTT协议
+		//game.Module(),
+		//login.Module(),
+		webapp.Module(),
+	)
 }
