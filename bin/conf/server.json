@@ -33,7 +33,7 @@
                     "CertFile": "/opt/go/mqantserver/sslkey/h5link.pem",
                     "KeyFile": "/opt/go/mqantserver/sslkey/h5link.key",
                     //Session持久化心跳包 单位/秒
-                    "MinHBStorage": 60
+                    "MinHBStorage": 15
                 }
             }
         ],
@@ -60,7 +60,7 @@
                             "Id":"Login001",
                             "ProcessID":"development"
                         }
-                ]
+                ],
         //        "Chat":[
         //                   {
         //                        "Id":"Chat001",
@@ -98,15 +98,15 @@
         //            }
         //          }
         //        ],
-        //        "Webapp":[
-        //                        {
-        //                            "Id":"Webapp001",
-        //                            "ProcessID":"development",
-        //                            "Settings":{
-        //                                "StaticPath":"/work/go/mqantserver/bin"
-        //                            }
-        //                        }
-        //                ],
+                "Webapp":[
+                                {
+                                    "Id":"Webapp001",
+                                    "ProcessID":"development",
+                                    "Settings":{
+                                        "StaticPath":"bin/web"
+                                    }
+                                }
+                        ]
         //        "Tracing":[
         //                                {
         //                                    "Id":"Tracing001",
