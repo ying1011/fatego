@@ -1,0 +1,35 @@
+
+body{
+    background-image: url("./yly.png");
+}
+
+p{
+    text-align:center;
+}
+
+.sprite-bulin{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:-9;
+    width:130px;
+    height:134px;
+    background-image:url("ybl.png");
+    background-repeat:no-repeat;
+    animation-name:bulinfly;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-timing-function:steps(7)
+}
+
+@-webkit-keyframes
+bulinfly{ 100%{background-position-x:-910px} }
+@-moz-keyframes
+bulinfly{ 100%{background-position-x:-910px} }
+@-ms-keyframes
+bulinfly{100%{background-position-x:-910px}}
+@-o-keyframes
+bulinfly{100%{background-position-x:-910px}}
+@keyframes
+bulinfly{100%{background-position-x:-910px}}
