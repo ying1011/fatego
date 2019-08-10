@@ -10,7 +10,6 @@ import (
 	"github.com/liangdas/mqant/log"
 	"github.com/liangdas/mqant/module"
 	"github.com/liangdas/mqant/gate"
-	"time"
 )
 
 var Module = func() module.Module {
@@ -42,7 +41,7 @@ func (this *Gate) Version() string {
 
 func (this *Gate) OnInit(app module.App, settings *conf.ModuleSettings) {
 	//注意这里一定要用 gate.Gate 而不是 module.BaseModule
-	this.Gate.OnInit(this, app, settings,gate.Heartbeat(time.Second*10) )
+	this.Gate.OnInit(this, app, settings)
 
 
 	//与客户端通信的自定义粘包示例，需要mqant v1.6.4版本以上才能运行
@@ -81,7 +80,7 @@ func (this *Gate)OnRequestTracing(session gate.Session,topic string,msg []byte)b
 存储用户的Session信息
 Session Bind Userid以后每次设置 settings都会调用一次Storage
 */
-func (this *Gate) Storage(session gate.Session) (err error) {
+func (this *Gate) Storage(Userid string, session gate.Session) (err error) {
 	log.Info("需要处理对Session的持久化")
 	return nil
 }
@@ -89,7 +88,7 @@ func (this *Gate) Storage(session gate.Session) (err error) {
 /**
 强制删除Session信息
 */
-func (this *Gate) Delete(session gate.Session) (err error) {
+func (this *Gate) Delete(Userid string) (err error) {
 	log.Info("需要删除Session持久化数据")
 	return nil
 }
@@ -107,6 +106,6 @@ func (this *Gate) Query(Userid string) ([]byte,  error) {
 用户心跳,一般用户在线时60s发送一次
 可以用来延长Session信息过期时间
 */
-func (this *Gate) Heartbeat(session gate.Session) {
+func (this *Gate) Heartbeat(Userid string) {
 	log.Info("用户在线的心跳包")
 }

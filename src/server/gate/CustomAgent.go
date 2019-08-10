@@ -109,11 +109,11 @@ func (this *CustomAgent)heartbeat(){
 	//自定义网关需要你自己设计心跳协议
 	if this.GetSession().GetUserId() != "" {
 		//这个链接已经绑定Userid
-		interval :=int64(this.last_storage_heartbeat_data_time)+int64(this.gate.Options().Heartbeat) //单位纳秒
+		interval :=int64(this.last_storage_heartbeat_data_time)+int64(this.gate.GetMinStorageHeartbeat()) //单位纳秒
 		if interval < time.Now().UnixNano() {
 			//如果用户信息存储心跳包的时长已经大于一秒
 			if this.gate.GetStorageHandler() != nil {
-				this.gate.GetStorageHandler().Heartbeat(this.GetSession())
+				this.gate.GetStorageHandler().Heartbeat(this.GetSession().GetUserId())
 				this.last_storage_heartbeat_data_time = time.Duration(time.Now().UnixNano())
 			}
 		}
